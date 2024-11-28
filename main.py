@@ -26,6 +26,7 @@ def show_coordinates(event=None):
 # Интерфейс
 window = Tk()
 window.title("Поиск координат города")
+window.geometry("350x100")
 
 key = '1828e03833594c74ae77282ddae5ff1c'
 city = 'Москва'

@@ -4,7 +4,7 @@ def get_coordinates(city, key):
     """ Получает координаты города, используя библиотеку OpenCage. """
     try:
         geocoder = OpenCageGeocode(key)
-        results = geocoder.geocode(city)
+        results = geocoder.geocode(city, language='ru')
 
         if results:
             # Возвращает первый результат

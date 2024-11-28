@@ -10,7 +10,7 @@ def get_coordinates(city, key):
         return "Город не найден"
 
 # Пример использования
-key = '97c595bec990457d975c12c16a4ec4a7'
+key = '1828e03833594c74ae77282ddae5ff1c'
 city = 'Москва'
 coordinates = get_coordinates(city, key)
 print(f"Координаты города {city}: {coordinates}")

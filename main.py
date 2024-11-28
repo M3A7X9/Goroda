@@ -14,8 +14,11 @@ def get_coordinates(city, key):
             lat = round(results[0]['geometry']['lat'], 2)
             lng = round(results[0]['geometry']['lng'], 2)
             country = results[0]['components']['country']
-            region = results[0]['components']['state']
-            return f"Широта: {lat}, Долгота: {lng}\nСтрана: {country}\nРегион: {region}"
+            if 'state' in results[0]['components']:
+                region = results[0]['components']['state']
+                return f"Широта: {lat}, Долгота: {lng}\n Страна: {country}. Регион: {region}"
+            else:
+                return f"Широта: {lat}, Долгота: {lng}\n Страна: {country}"
         else:
             return "Город не найден"
     except Exception as e:
@@ -29,7 +32,7 @@ def show_coordinates(event=None):
 # Интерфейс
 window = Tk()
 window.title("Поиск координат города")
-window.geometry("400x100")
+window.geometry("400x150")
 
 key = '1828e03833594c74ae77282ddae5ff1c'
 city = 'Москва'

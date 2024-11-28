@@ -6,13 +6,16 @@ def get_coordinates(city, key):
     """ Получает координаты города, используя библиотеку OpenCage. """
     try:
         geocoder = OpenCageGeocode(key)
+        #results = geocoder.geocode(city, language='ru')
         results = geocoder.geocode(city, language='ru')
 
         if results:
             # Возвращает первый результат
             lat = round(results[0]['geometry']['lat'], 2)
             lng = round(results[0]['geometry']['lng'], 2)
-            return f"Широта: {lat}, Долгота: {lng}"
+            country = results[0]['components']['country']
+            region = results[0]['components']['state']
+            return f"Широта: {lat}, Долгота: {lng}\nСтрана: {country}\nРегион: {region}"
         else:
             return "Город не найден"
     except Exception as e:
